@@ -44,7 +44,7 @@ predictions = pipe.predict(X_test)
 accuracy = accuracy_score(y_test, predictions)
 f1 = f1_score(y_test, predictions, average="macro")
 
-print("Accuracy:", str(round(accuracy, 2)*100) + "%", "F1:", round(f1, 2))
+print("Accuracy:", str(round(accuracy, 2) * 100) + "%", "F1:", round(f1, 2))
 
 with open("Results/metrics.txt", "w") as outfile:
     outfile.write(f"\nAccuracy = {round(accuracy, 2)}, F1 Score = {round(f1, 2)}.")
@@ -60,5 +60,3 @@ plt.savefig("Results/model_results.png", dpi=300)
 import skops.io as sio
 
 sio.dump(pipe, "Model/drug_pipeline.skops")
-
-
