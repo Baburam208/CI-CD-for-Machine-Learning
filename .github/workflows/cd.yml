@@ -13,6 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install Hugging Face CLI
+        run: pip install "huggingface_hub[cli]"
+
+      - name: Login to Hugging Face
+        env:
+          HF: ${{ secrets.HF }}
+        run: make hf-login
+
       - name: Deployment To Hugging Face
         env:
             HF: ${{ secrets.HF }}
